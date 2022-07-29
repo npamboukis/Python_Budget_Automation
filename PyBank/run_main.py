@@ -56,13 +56,31 @@ for profit in net_profit:
     
     # Calculate total earnings
     total_profit += profit
+
+
+output_path = Path('../PyBank/results.txt')
+
+with open(output_path, 'w') as txtfile:
+    txtfile.write("Results from budget_data.csv\n\n'''''\n")
+    txtfile.write("\n")
+    txtfile.write("Financial Analysis\n")
+    txtfile.write("---------------------------\n")
+    txtfile.write(f"Total Months: {line_num}\n")
+    txtfile.write(f"Total: ${total_profit}\n")
+    txtfile.write(f"Average Change: ${round(avg_profit,2)}\n")
+    txtfile.write(f"Greatest Increase in Profits: {max_date} $({max_profit})\n")
+    txtfile.write(f"Greatest Decrease in Profits: {min_date} $({min_profit})\n\n")
+    txtfile.write("'''''")
     
+    
+    
+# Display on Terminal
         
-print("")
-print(f"Financial Analysis")
-print(f"--------------------------\n")
-print(f"Total Months: {line_num}")
-print(f"Total: ${total_profit}")
-print(f"Average Change: ${round(avg_profit,2)}")
-print(f"Greatest Increase in Profits: {max_date} $({max_profit})")
-print(f"Greatest Decrease in Profits: {min_date} $({min_profit})\n")
+# print("")
+# print(f"Financial Analysis")
+# print(f"--------------------------\n")
+# print(f"Total Months: {line_num}")
+# print(f"Total: ${total_profit}")
+# print(f"Average Change: ${round(avg_profit,2)}")
+# print(f"Greatest Increase in Profits: {max_date} $({max_profit})")
+# print(f"Greatest Decrease in Profits: {min_date} $({min_profit})\n")
