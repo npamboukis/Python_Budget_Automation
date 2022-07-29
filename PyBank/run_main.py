@@ -12,9 +12,10 @@ date = []
 
 with open(csvpath, 'r') as csvfile:
     
+#     Read budget_data.csv file
     csvreader = csv.reader(csvfile, delimiter=",")
     
-    # Skip header row
+    # Skip header row / line_num will be the row counter & represent # of months
     header = next(csvreader)
     line_num = 0
     
@@ -25,6 +26,7 @@ with open(csvpath, 'r') as csvfile:
         
         # Add data to net_profit
         profit = int(row[1])
+        
         # Append profit into net_profit
         net_profit.append(profit)
         date.append(row[0])
@@ -48,6 +50,7 @@ for i in range(1, len(net_profit)):
     
     min_profit = min(profit_change)
     
+#     Add date from which max/min_profit reside in
     max_date = str(date[profit_change.index(max(profit_change)) +1])
     min_date = str(date[profit_change.index(min(profit_change)) +1])
 
@@ -57,7 +60,7 @@ for profit in net_profit:
     # Calculate total earnings
     total_profit += profit
 
-
+# Create a txt file within PyBank folder & display the results
 output_path = Path('../PyBank/results.txt')
 
 with open(output_path, 'w') as txtfile:
